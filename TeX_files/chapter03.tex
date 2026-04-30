@@ -1,0 +1,133 @@
+\chapter{素数与素约数}
+
+\section{素数}
+
+\subsection{素数与合数的概念}
+
+如果一个正整数的正约数全是平凡约数，我们称这个数是素数（$1$ 除外，又称质数）；如果一个正整数的约数不只有平凡约数，我们称这个数是合数。特别地，$1$ 既不是质数，也不是合数。
+
+素数有无穷多个，所有大于 $3$ 的素数都可以表示为 $6n \pm 1$ 的形式，其中 $n$ 是正整数。
+
+\subsection{算术基本定理}
+
+\textbf{算术基本定理}（又称\textbf{唯一分解定理}）告诉我们：任意一个大于 $1$ 的正整数总能分解成若干素数的乘积。
+
+由此，有算术基本引理：若 $p$ 是素数，且 $p \mid a_1a_2,$，则 $p \mid a_1$ 和 $p \mid a_2$ 至少有一个成立。
+
+算术基本定理和算术基本引理是等价的。
+
+\subsection{素性测试}
+
+在入门级编程中，素性测试通常采用试除法。具体的说，对于一个数 $n$，试除以 $[2, \sqrt{n}]$ 中的所有整数。若没有能整除的，说明 $n$ 是一个素数。
+
+代码实现如下：
+
+\begin{lstlisting}[caption=素性测试]
+bool isPrime(int n) {
+    if (n < 2) return false;
+    for (int i=2; i*i<=n; i++) {
+        if (n % i == 0) return true;
+    }
+    return false;
+}
+\end{lstlisting}
+
+\section{筛法}
+
+\textbf{筛法}代指一类用于寻找素数的算法。
+
+\subsection{朴素筛法}
+
+\textbf{朴素筛法}是最简单的一种筛法，其逐个对范围内的数进行素性测试检查其是否为素数。代码请读者自行编写。要从 $N$ 个数中筛选，朴素筛法的时间复杂度为 $O(N\sqrt{N})$。
+
+\subsection{埃氏筛法}
+
+\textbf{埃氏筛法}，全称埃拉托斯特尼筛法，其核心思想在于：对于任意一个大于 $1$ 的正整数，其倍数一定是合数。而对于 $\sqrt{n}$ 以上的数来说，其应该被 $\sqrt{n}$ 以下的数筛过了。由上面的分析可以编写出如下代码：
+
+\begin{lstlisting}[caption=埃氏筛法]
+#include <vector>
+using namespace std;
+
+vector<int> primes;
+bool is_prime[N] {0, 0};
+
+void pre(int n) {
+    for (int i=2; i<=n; i++) is_prime[i] = true;
+    for (int i=2; i*i<=n; i++) {
+        if (is_prime[i])
+            for (int j=i*i; j<=n; j+=i)
+                is_prime[j] = false;
+    }
+    for (int i=2; i<=n; i++)
+        if (is_prime[i])
+            primes.push_back(i);
+}
+\end{lstlisting}
+
+时间复杂度为 $O(n \log \log n)$。
+
+\subsection{线性筛法}
+
+\textbf{线性筛法}，又称欧拉筛法，在埃氏筛法的基础上进一步优化。刚刚在埃氏筛法中，一个合数被它的多个质因子标记了多次。线性筛法让一个合数只被标记一次。代码实现如下：
+
+\begin{lstlisting}[caption=线性筛法]
+#include <vector>
+using namespace std;
+
+vector<int> primes;
+bool not_prime[N];
+
+void pre(int n) {
+    for (int i=2; i<=n; i++) {
+        if (!not_prime[i])
+            primes.push_back(i);
+        for (int j : primes) {
+            if (i * j > n) break;
+            not_prime[i * j] = true;
+            if (i % j == 0)
+                break;
+        }
+    }
+}
+\end{lstlisting}
+
+时间复杂度为 $O(n)$。
+
+\section{素约数}
+
+如果一个数存在为素数的约数，我们称这样的约数为\textbf{素约数}。
+
+\subsection{分解素约数}
+
+根据算术基本定理，任何大于 $1$ 的正整数都有唯一的一种分解成素数的乘积的方式，我们称分解的这个过程为\textbf{分解素约数}（或称\textbf{分解质因数}）。
+
+分解素约数通常采用\textbf{短除法}。这里的短除法和第 1 章中进制转换的短除法不是一个意思。具体的说，分解素约数的短除法将被分解数依次用每个素数除，直到能除尽则除，直至被分解数变为 $1$。
+
+\subsection{朴素算法}
+
+\textbf{朴素算法}利用短除法。考虑到素约数通常都是成对的，对 $n$ 进行分解，我们只需要遍历 $[2, \sqrt{n}]$ 的范围就可以了。
+
+代码实现如下：
+
+\begin{lstlisting}[caption=朴素算法]
+#include <vector>
+using namespace std;
+
+vector<int> result;
+
+void breakdown(int n) {
+    for (int i=2; i*i<=n; i++) {
+        if (n % i == 0) {
+            result.push_back(i);
+            while (n % i == 0) n /= i;
+        }
+    }
+    if (n != 1) result.push_back(n);
+}
+\end{lstlisting}
+
+时间复杂度为 $O(\sqrt{n})$。
+
+\subsection{朴素算法的优化}
+
+我们注意到，在上面的代码中，我们对每个数都进行了检查，但实际上我们只需要对素数进行检查就可以了。结合前面讲到的筛法，提前打好素数表，只检查素数，即可将时间复杂度降至 $O(\frac{\sqrt{n}}{\ln n})$。请读者自行完成代码。

@@ -1,0 +1,56 @@
+\chapter{集合论}
+
+\section{集合}
+
+\textbf{集合}是一个或多个确定的元素构成的一个整体。元素 $a$ 属于集合记作 $a \in A$；元素 $a$ 不属于集合 $A$ 记作 $a \notin A$。
+
+\subsection{集合的表示}
+
+集合的名称一般是大写字母，如 $A$、$B$、$C$ 等。集合的内容用大括号（$\left\{\right\}$）括起来。
+
+集合有两种表示方式，一种是罗列出所有的元素，如 $A=\left\{1, 2\right\}$，这种方式叫作\textbf{列举法}。另一种表示方式是利用集合中元素的共同特征，对这些特征进行描述，如 $B=\left\{x \in R \textbar x \leq 5\right\}$，这种方法叫做\textbf{描述法}。一般地，集合 $A$ 中具有相同特征 $P(x)$ 的所有元素 $x$ 组成的集合用描述法表示为 $\left\{x \in A \textbar P(x)\right\}$。
+
+\subsection{集合的性质}
+
+一般而言，集合具有如下性质：
+
+\begin{enumerate}
+\item 确定性：集合中的元素是确定的。一个元素要么属于该集合，要么不属于该集合；
+\item 互异性：集合中任意两个元素都被认为是不相同的；
+\item 无序性：集合中每个元素的地位相同，被认为是无序的。
+\end{enumerate}
+
+\subsection{特殊集合}
+
+有一些特殊的集合，用一些特殊的符号或字母表示：
+
+\begin{enumerate}
+\item 空集：$\emptyset$ 或 $\left\{\right\}$
+\item 实数集：$\mathbf{R}$
+\item 复数集：$\mathbf{C}$
+\item 有理数集：$\mathbf{Q}$
+\item 自然数集：$\mathbf{N}$
+\item 正整数集：$\mathbf{N}^*$ 或 $\mathbf{N}^+$
+\end{enumerate}
+
+\section{集合间的关系与运算}
+
+\subsection{子集与相等}
+
+若集合 $A$ 中的所有元素都在集合 $B$ 中，则称 $A$ 是 $B$ 的\textbf{子集}，记作 $A \subseteq B$。任何一个集合都是自身的子集。
+
+若 $A \subseteq B, B \subseteq A$，也就是 $A$ 与 $B$ 两个集合中的元素一一对应地相同，则称 $A$ 和 $B$ \textbf{相等}，记作 $A = B$。反之，则称 $A$ 和 $B$ 不相等，记作 $A \neq B$。
+
+若 $A \subseteq B, A \neq B$，则称 $A$ 是 $B$ 的\textbf{真子集}，记作 $A \subset B$ 或 $A \subsetneqq B$。
+
+\subsection{并集与交集}
+
+假定 $A$ 和 $B$ 是两个给定集合。由所有属于 $A$ 或属于 $B$ 的元素组成的集合称为 $A$ 与 $B$ 的并集，记作 $A \cup B$。由所有属于 $A$ 且属于 $B$ 的元素组成的集合称为 $A$ 与 $B$ 的交集，记作 $A \cap B$。
+
+\subsection{全集与补集}
+
+如果一个集合含有研究问题设计的所有元素，那么我们将这个元素称为\textbf{全集}，一般记作 $U$。对于集合 $A$，在全集 $U$ 但不在集合 $A$ 中的所有元素组成的集合集合称为\textbf{补集}，记作 $ \complement_U A$。
+
+\subsection{有限集合和元素个数}
+
+含有有限个元素的集合叫作\textbf{有限集合}（也称有穷集合）。$\operatorname{card}(A)$ 表示有限集合 $A$ 中元素的个数。

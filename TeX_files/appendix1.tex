@@ -1,0 +1,83 @@
+\chapter{常用数学符号表}
+
+\section{逻辑运算}
+
+\begin{enumerate}
+\item $p \land q$：读作“与”或“合取”，$p$ 与 $q$；
+\item $p \vee q$：读作“或”或“析取”，$p$ 或 $q$；
+\item $ \neg p$：读作“非”或“否定”，非 $p$；
+\item $p \Longrightarrow q$：读作“蕴含”，若 $p$ 为真，则 $q$ 为真；
+\item $p \Longleftrightarrow q$：读作“等价于”，$(p \Longrightarrow q) \land (q \Longrightarrow p)$。
+\end{enumerate}
+
+\section{四则运算}
+
+\begin{enumerate}
+\item $a + b$：读作“加”，两数相加；
+\item $a - b$：读作“减”，两数相减；
+\item $a \times b$ 或 $a \cdot b$ 或 $ab$：读作“乘”，两数相乘；
+\item $a \div b$ 或 $\frac{a}{b}$：读作“除以”，两数相除\footnote{\quad 一般情况下应避免使用 $\div$ 符号。}；
+\item $a \mod b$：读作“模”，一数对另一数取模。
+\end{enumerate}
+
+\section{比较运算}
+
+\begin{enumerate}
+\item $a > b$：读作“大于”，判定 $a$ 是否比 $b$ 大；
+\item $a < b$：读作“小于”，判定 $a$ 是否比 $b$ 小；
+\item $a = b$：读作“等于”，判定 $a$ 与 $b$ 是否相等；
+\item $a \leq b$：读作“小于或等于”或“小于等于”，$a < b \vee a = b$；
+\item $a \geq b$：读作“大于或等于”或“大于等于”，$a > b \vee a = b$；
+\item $a \neq b$：读作“不等于"，$\neg (a = b)$。
+\end{enumerate}
+
+\section{幂运算、指数与对数}
+
+\textbf{注意：本节内容在实数范围内讨论。}
+
+\begin{enumerate}
+\item $a^p$：读作“次方”或“幂”，$p$ 个 $a$ 相乘，若 $p < 0$，则代表 $\frac{1}{a^{-p}}$；
+\item $\sqrt[]{a}$：读作“平方根”或“二次方根”，若 $p^2=a(p \geq 0)$，则 $\sqrt{a} = p$。
+\item $\sqrt[3]{a}$：读作“立方根”或“三次方根”，若 $p^3=a(p \geq 0)$，则 $\sqrt[3]{a} = p$。
+\item $\log_a x$：读作“$x$ 的以 $a$ 为底的对数，$a^{\log_a x} = x$。
+\end{enumerate}
+
+\section{基本运算的拓展}
+
+\begin{enumerate}
+\item $\sum$：读作“求和”，$\sum_{i=1}^n a_i$ 代表 $a_1 + a_2 + \dots + a_n$；
+\item $\prod$：读作“求积”，$\prod_{i=1}^n a_i$ 代表 $a_1  a_2 \dots a_n$；
+\item $\max$：读作“较大值”，$\max(a, b) = \begin{cases}
+a &(a \geq b)\\
+b &(a < b)
+\end{cases}$。
+\item $min$：读作“较小值”，$\min(a, b) = \begin{cases}
+a &(a \leq b)\\
+b &(a > b)
+\end{cases}$；
+\item $n!$：读作“阶乘”，$n! = \prod_{i=1}^n i$。
+\end{enumerate}
+
+\section{集合论}
+
+\textbf{注意：本节中符号的具体含义请见第 4 章。}
+
+\begin{enumerate}
+\item $a \in A$：读作“属于”，见 4.1；
+\item $a \notin A$：读作“不属于”，见 4.1；
+\item $A \subseteq B$：读作“包含于”，见 4.2；
+\item $A \subset B$ 或 $A \subsetneqq B$：表示真子集，见 4.2；
+\item $A \cup B$：读作“并”，见 4.2；
+\item $A \cap B$：读作“交”，见 4.2；
+\item $\complement_U A$：读作“除 $A$ 之外”，见 4.2；
+\item $\operatorname{card}(A)$：读作“基数”，见 4.2。
+\end{enumerate}
+
+\section{组合数学}
+
+\textbf{注意：本节中符号的具体含义请见第 5 章。}
+
+\begin{enumerate}
+\item $\operatorname{A}_n^m$：排列数，见 5.2；
+\item $\binom{m}{n}$ 或 $\operatorname{C}_n^m$：组合数，见 5.2。
+\end{enumerate}

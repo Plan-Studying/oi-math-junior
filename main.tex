@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{ctex}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{fontspec}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{\hspace{2em}定理}[section]
+\renewcommand{\proofname}{\hspace{2em}证明}
+\renewcommand{\qedsymbol}{\hspace{2em}证毕}
+
+\lstset{
+	basicstyle          =   \ttfamily,
+	keywordstyle        =   \bfseries,
+	commentstyle        =   \rmfamily,
+	stringstyle         =   \ttfamily,
+	flexiblecolumns,
+	numbers             =   left,
+	showspaces          =   false,
+	numberstyle         =   \zihao{-5}\ttfamily,
+	showstringspaces    =   false,
+	captionpos          =   t,
+	frame               =   lrtb,
+	language			=	C++
+}
+
+\lstloadlanguages{
+	C++
+}
+
+\lstdefinestyle{C++}{
+	language        =   C++,
+	basicstyle      =   \zihao{-5}\ttfamily,
+	numberstyle     =   \zihao{-5}\ttfamily,
+	keywordstyle    =   \color{blue},
+	stringstyle     =   \color{magenta},
+	commentstyle    =   \color{red}\ttfamily,
+	breaklines      =   true,
+	columns         =   fixed,
+	basewidth       =   0.5em,
+}
+
+\begin{document}
+
+\author{“学习者”计划编纂小组一组 \quad 编}
+\title{信息学竞赛与数学 \\ {\small 入门级}}
+\date{2026 年 4 月第 1 版第 2 次修订}
+
+\maketitle
+\tableofcontents
+
+\frontmatter
+\include{./TeX_files/preface}
+
+\mainmatter
+\include{./TeX_files/chapter01}
+\include{./TeX_files/chapter02}
+\include{./TeX_files/chapter03}
+\include{./TeX_files/chapter04}
+\include{./TeX_files/chapter05}
+
+\appendix
+\include{./TeX_files/appendix1}
+\include{./TeX_files/appendix2}
+
+\backmatter
+\include{./TeX_files/postscript}
+
+\end{document}

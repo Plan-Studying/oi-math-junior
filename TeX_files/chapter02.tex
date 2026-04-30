@@ -1,0 +1,128 @@
+\chapter{整除与同余}
+
+\section{整除理论}
+
+对于一个整数 $n$（记作 $n \in \mathbf{Z}$），若存在整数 $x$，使得 $x$ 除 $n$ 得到的余数为 $0$，则称 $x$ 能够\textbf{整除} $n$，或称 $n$ 能被 $x$ 整除，记作 $x \mid n$，我们同时称 $n$ 是 $x$ 的\textbf{倍数}，$x$ 是 $n$ 的\textbf{约数}（又称因数）。若 $x$ 不能整除 $n$，记作 $x \nmid n$。
+
+\subsection{整除的性质}
+
+\begin{theorem}
+对于 $a,b \in \mathbf{Z}$，若有 $a \mid b$，则有 $(-a) \mid b, a \mid (-b), (-a) \mid (-b)$。
+\end{theorem}
+
+\begin{proof}
+因为 $a \mid b$，所以 $b = na (n \in \mathbf{Z})$。由等式的性质和乘法结合律得 $b = (-n)(-a), -b = (-n)a, -b=n(-a)$。因为 $n \in \mathbf{Z}$，所以 $-n \in \mathbf{Z}$，所以 $(-a) \mid b, a \mid (-b), (-a) \mid (-b)$。
+\end{proof}
+
+\begin{theorem}
+对于 $a,b,c \in \mathbf{Z}$，若有 $a \mid b, b \mid c$，则有 $a \mid c$。
+\end{theorem}
+
+\begin{proof}
+因为 $a \mid b, b \mid c$，所以 $b$ 是 $a$ 的倍数，$c$ 是 $b$ 的倍数，即 $b = ma, c = nb (m, n \in \mathbf{Z})$，所以 $c = mna$。由于整数乘整数得到结果仍为整数，所以 $mn \in \mathbf{Z}$。所以 $c$ 是 $a$ 的倍数，所以 $a \mid c$。
+\end{proof}
+
+\begin{theorem}
+对于 $a \neq 0$，若 $b=na+c(n \in \mathbf{Z})$，有 $a \mid b$，则有 $a \mid c$。
+\end{theorem}
+
+\begin{proof}
+因为 $a \mid b$，所以 $b = ma(m \in \mathbf{Z})$，又因为 $b=na+c$，所以 $ma = na + c$，所以 $c = (m-n)a$。因为两整数之差仍为整数，所以 $m-n \in \mathbf{Z}$，所以 $a \mid c$。
+\end{proof}
+
+\subsection{倍数与约数}
+
+$0$ 是所有非 $0$ 数的倍数。对于 $x \neq 0$，其约数只有有限个，其中 $\pm 1$ 和 $\pm x$ 是 $x$ 的平凡约数，其他约数称为真约数或非平凡约数。
+
+\section{最大公约数与最小公倍数}
+
+对于两个数 $a$ 和 $b$，其共同的约数中最大的一个称为这两个数的最大公约数（简写为 gcd），记作 $\gcd(a, b)$ 或 $(a,b)$；同时是二者倍数的数中最小的一个数称为最小公倍数（简写为 lcm），记作 $\operatorname{lcm}(a, b)$ 或 $[a, b]$。
+
+\subsection{gcd 和 lcm 的性质}
+
+通常而言，最大公约数和最小公倍数具有如下性质：
+\[
+(a, b) \times [a, b] = a \times b
+\]
+
+且最大公约数有如下重要性质：
+
+\begin{enumerate}
+\item $(a, b) = (b, a) (a, b \in \mathbf{Z})$
+\item 若 $a \neq 0, a \in \mathbf{Z} $，则 $(a, 0) = (a, a) = \lvert a \rvert$
+\item $(bq+r, b) = (r, b) (b,q, r \in \mathbf{Z})$
+\end{enumerate}
+
+\subsection{互素}
+
+若两个整数 $a$ 和 $b$ 满足 $(a, b) = 1$，则称 $a$ 和 $b$ \textbf{互素}（也称互质）。若多个整数满足最大公约数为 $1$，则称这几个数互素。
+
+\subsection{辗转相除法}
+
+\textbf{辗转相除法}，也称欧几里得算法，是一种计算两个数最大公约数的方法。其基本原理是 $(bq+r, b) = (r, b)$。代码实现如下：
+
+\begin{lstlisting}[caption=辗转相除法]
+int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a % b);
+}
+\end{lstlisting}
+
+\section{同余}
+
+\subsection{余数与同余的概念}
+
+对于任意非零正整数 $a$ 和 $b$，设 $b = qa+ r$，其中 $0 \leq r < a$，则称 $r$ 为 $a$ 除 $b$ 的\textbf{余数}。
+
+若整数 $a$ 和 $b$ 满足 $m \mid (a-b)$，其中 $m$ 为整数，即则称 $a$ \textbf{同余}于 $b$ 模 $m$，记作 $a \equiv b \pmod m$。其中 $m$ 称为\textbf{模数}（或称模），$b$ 称为 $a$ 对模 $b$ 的\textbf{剩余}。
+
+\subsection{同余的性质与运算}
+
+同余具有如下性质：
+
+\begin{enumerate}
+\item 自反性：$a \equiv a \pmod m$；
+\item 对称性：若 $a \equiv b \pmod m$，则 $b \equiv a \pmod m$；
+\item 传递性：若 $a \equiv b \pmod m, b \equiv c \pmod m$，则 $a \equiv c \pmod m$。
+\end{enumerate}
+
+同余可以进行如下线性运算：若 $a \equiv b \pmod m, c \equiv d \pmod m$，则有：
+
+\begin{enumerate}
+\item 加、减：$a \pm c \equiv b \pm d \pmod m$；
+\item 乘：$a \times c \equiv b \times d \pmod m$
+\end{enumerate}
+
+除此之外，同余还有如下性质：若 $a \equiv b \pmod m$，则有：
+
+\begin{enumerate}
+\item $ak \equiv bk \pmod mk$，其中 $k \neq 0$ 且 $k \in \mathbf{Z}$；
+\item 若 $d \mid m$，则 $a \equiv b \pmod d$；
+\item 若 $m \in \mathbf{N}^*$，则 $(a, m) = (b, m)$。
+\end{enumerate}
+
+\subsection{*中国剩余定理}
+
+《孙子算经》中有一个问题：有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二．问物几何？由此，我们可以列出一个一元线性同余方程组，那么我们如何求解呢？
+
+\textbf{中国剩余定理}（CRT）可用于求解一类一元线性同余方程组：
+
+公式化地，中国剩余定理描述如下：对于如下的一元线性同余方程组（其中 $n_1$ 到 $n_k$ 两两互素）
+\[
+\begin{cases}
+	x \equiv a_1 \pmod{n_1} \\
+	x \equiv a_2 \pmod{n_2} \\
+	\vdots \\
+	x \equiv a_k \pmod{n_k}
+\end{cases}
+\]
+可以通过如下方法求解：
+\begin{enumerate}
+	\item 计算所有模数的积 $n$；
+	\item 对于第 $i$ 个方程：
+	\begin{enumerate}
+		\item 计算 $m_i = \frac{n}{n_i}$；
+		\item 计算 $m_i$ 在模 $n_i$ 意义下的逆元 $m_i^{-1}$；
+		\item 计算 $c_i = m_i m_i^{-1}$（\textbf{不要对 $n_i$ 取模}）。
+	\end{enumerate}
+	\item 方程组在模 $n$ 意义下的唯一解为：$x = \sum_{i=1}^k a_i c_i \pmod{n}$。
+\end{enumerate}
