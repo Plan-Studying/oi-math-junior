@@ -71,8 +71,4 @@
 \contentsline {section}{\numberline {A.5}基本运算的拓展}{28}{}%
 \contentsline {section}{\numberline {A.6}集合论}{29}{}%
 \contentsline {section}{\numberline {A.7}组合数学}{29}{}%
-\contentsline {chapter}{\numberline {B}ASCII 码简表}{31}{}%
-\contentsline {section}{\numberline {B.1}字母}{31}{}%
-\contentsline {section}{\numberline {B.2}数字}{31}{}%
-\contentsline {section}{\numberline {B.3}部分特殊符号}{31}{}%
-\contentsline {chapter}{后记}{33}{}%
+\contentsline {chapter}{后记}{31}{}%
